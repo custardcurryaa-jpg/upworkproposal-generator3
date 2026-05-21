@@ -40,7 +40,6 @@ body {
   margin: 0 auto;
 }
 
-/* ── Masthead ── */
 .masthead {
   border-bottom: 1.5px solid var(--ink);
   padding-bottom: 1.25rem;
@@ -80,7 +79,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Nav ── */
 .nav-rail {
   display: flex;
   gap: 0;
@@ -122,7 +120,6 @@ body {
   color: var(--ink);
 }
 
-/* ── Sections ── */
 .section { display: none; }
 .section.active { display: block; animation: fadeUp 0.22s ease; }
 
@@ -131,7 +128,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Fields ── */
 .field { margin-bottom: 1.15rem; }
 
 .field label {
@@ -170,7 +166,6 @@ textarea:focus, input:focus, select:focus {
 
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-/* ── Buttons ── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -215,7 +210,6 @@ textarea:focus, input:focus, select:focus {
   margin-top: 12px;
 }
 
-/* ── Status ── */
 .status-line {
   font-family: 'DM Mono', monospace;
   font-size: 12px;
@@ -229,7 +223,6 @@ textarea:focus, input:focus, select:focus {
 }
 @keyframes dots { 0%,100%{content:'.'} 33%{content:'..'} 66%{content:'...'} }
 
-/* ── Proposal output ── */
 .output-card {
   margin-top: 1.5rem;
   border: 0.5px solid var(--paper-3);
@@ -276,7 +269,6 @@ textarea:focus, input:focus, select:focus {
   min-height: 80px;
 }
 
-/* ── Outcome form ── */
 .outcome-form-panel {
   display: none;
   margin-top: 1rem;
@@ -295,7 +287,6 @@ textarea:focus, input:focus, select:focus {
   margin-bottom: 1rem;
 }
 
-/* ── Tracker ── */
 .tracker-list { display: flex; flex-direction: column; gap: 8px; }
 
 .tracker-empty {
@@ -368,7 +359,6 @@ textarea:focus, input:focus, select:focus {
 }
 .del-btn:hover { color: var(--red); }
 
-/* ── Insights ── */
 .insight-panel {
   background: #fff;
   border: 0.5px solid var(--paper-3);
@@ -392,7 +382,6 @@ textarea:focus, input:focus, select:focus {
   gap: 8px;
 }
 
-/* ── Misc ── */
 .section-intro {
   font-size: 13.5px;
   color: var(--ink-3);
@@ -400,14 +389,6 @@ textarea:focus, input:focus, select:focus {
   line-height: 1.65;
   font-weight: 300;
 }
-
-.profile-note {
-  font-size: 12px;
-  color: var(--ink-3);
-  margin-top: 6px;
-}
-.profile-note a { color: var(--gold); text-decoration: none; }
-.profile-note a:hover { text-decoration: underline; }
 
 .saved-flash {
   font-family: 'DM Mono', monospace;
@@ -418,7 +399,6 @@ textarea:focus, input:focus, select:focus {
 }
 .saved-flash.show { opacity: 1; }
 
-/* ── Footer ── */
 .footer {
   margin-top: 3rem;
   padding-top: 1.25rem;
@@ -430,7 +410,6 @@ textarea:focus, input:focus, select:focus {
   letter-spacing: 0.5px;
 }
 
-/* ── Responsive ── */
 @media (max-width: 520px) {
   .row { grid-template-columns: 1fr; }
   .masthead { flex-direction: column; align-items: flex-start; }
@@ -448,7 +427,7 @@ textarea:focus, input:focus, select:focus {
       <h1><i class="ti ti-feather" style="font-size:24px;vertical-align:-3px;margin-right:9px;color:var(--gold)"></i>Proposal Studio</h1>
       <p>Paste a job post · get a proposal in your voice · track what wins</p>
     </div>
-    <div class="edition-badge">Secure Backend</div>
+    <div class="edition-badge">Live Now</div>
   </div>
 
   <nav class="nav-rail">
@@ -466,7 +445,6 @@ textarea:focus, input:focus, select:focus {
     </button>
   </nav>
 
-  <!-- ── GENERATE ── -->
   <div id="tab-generate" class="section active">
     <div class="field">
       <label>Job Post</label>
@@ -516,7 +494,6 @@ textarea:focus, input:focus, select:focus {
     </div>
   </div>
 
-  <!-- ── PROFILE ── -->
   <div id="tab-profile" class="section">
     <p class="section-intro">Your profile powers every proposal. Fill it once, generate forever. Everything is stored only in your browser.</p>
     <div class="row">
@@ -535,11 +512,11 @@ textarea:focus, input:focus, select:focus {
     </div>
     <div class="field">
       <label>Portfolio Link 1</label>
-      <input type="text" id="p-link1" placeholder="https://myproject.vercel.app/ [image upload tool]">
+      <input type="text" id="p-link1" placeholder="https://myproject.vercel.app/">
     </div>
     <div class="field">
       <label>Portfolio Link 2 (optional)</label>
-      <input type="text" id="p-link2" placeholder="https://myproject2.vercel.app/ [dashboard app]">
+      <input type="text" id="p-link2" placeholder="https://myproject2.vercel.app/">
     </div>
     <div style="display:flex;align-items:center;gap:10px">
       <button class="btn btn-ink" onclick="saveProfile()">
@@ -549,14 +526,12 @@ textarea:focus, input:focus, select:focus {
     </div>
   </div>
 
-  <!-- ── TRACKER ── -->
   <div id="tab-tracker" class="section">
     <p class="section-intro">Track which proposals convert. Each outcome you log makes the Insights tab sharper.</p>
     <div class="tracker-list" id="tracker-list"></div>
     <p class="tracker-empty" id="tracker-empty" style="display:none">No outcomes yet — generate a proposal and log how it went.</p>
   </div>
 
-  <!-- ── INSIGHTS ── -->
   <div id="tab-insights" class="section">
     <p class="section-intro">AI-powered analysis of your logged proposals. Log at least 3 outcomes (mix of won/lost) to get useful patterns.</p>
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
@@ -572,11 +547,10 @@ textarea:focus, input:focus, select:focus {
 </div>
 
 <script>
-const API_URL = 'http://localhost:3001'; // Change to your backend URL
+const GEMINI_API_KEY = 'AIzaSyB8vAEJOXECed3BzbyiT9eigEpZ88JZh1w';
 let currentProposal = '';
 let currentJobPost = '';
 
-/* ── Profile ── */
 function getProfile() {
   return {
     name:   document.getElementById('p-name').value   || 'Ali',
@@ -606,13 +580,11 @@ function loadProfile() {
   } catch(e) {}
 }
 
-/* ── Outcomes ── */
 function getOutcomes() {
   try { return JSON.parse(localStorage.getItem('upwork_outcomes') || '[]'); } catch(e) { return []; }
 }
 function saveOutcomes(o) { localStorage.setItem('upwork_outcomes', JSON.stringify(o)); }
 
-/* ── Nav ── */
 function switchTab(name, el) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -621,7 +593,65 @@ function switchTab(name, el) {
   if (name === 'tracker') renderTracker();
 }
 
-/* ── Generate ── */
+function buildSystemPrompt(p) {
+  return `You are an Upwork proposal writer. Write proposals in this exact style:
+
+FIXED LINES — NEVER CHANGE:
+- Opening: "Greetings,"
+- Hook line 2: "You'll receive lots of AI-generated responses, so I'll be direct."
+- Closing: "You've read this far, so you may message me to discuss further.\nSee you inside :)\nThanks"
+
+VOICE: Simple plain English. No buzzwords. Client-first — use "you/your" more than "I". Confident, direct, human. Under 150 words total.
+
+STRUCTURE (adapt based on job):
+- BLOCK A (conditional): "You just have to share [thing1] + [thing2] + [thing3]." — ONLY if job is vague and you need info. SKIP if job has full details.
+- BLOCK B (approach): If complex job → "Approach will be: Step 1 → Step 2 → Step 3". If simple → one inline sentence "The approach will be to [...]". If client asked numbered questions → answer them numbered.
+- BLOCK C (proof): Always include a live link with 1-line description in brackets.
+- BLOCK D (experience): "Moreover, I have got ${p.years}+ years of experience with [EXACT STACK FROM JOB POST] & other full-stack technologies." Mirror exact version numbers from job post.
+- BLOCK E (portfolio, frontend/UI jobs only): "You may take a look at my recent [type] projects:"
+
+PROFILE:
+- Stack: ${p.stack}
+- Portfolio: ${p.link1}${p.link2 ? '\n- ' + p.link2 : ''}
+
+PATTERNS:
+- Use "obviously" when client worries about something (availability, skill match)
+- Mirror client's exact stack versions from job post
+- Keep it under 150 words
+- Never sound like AI
+
+Output ONLY the proposal text. No explanation, no preamble.`;
+}
+
+async function callGemini(systemPrompt, userMessage) {
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          contents: [{ 
+            parts: [{ 
+              text: systemPrompt + '\n\nJob Post:\n' + userMessage 
+            }] 
+          }] 
+        })
+      }
+    );
+    
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || `API Error ${res.status}`);
+    }
+    
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response received.';
+  } catch(e) {
+    throw e;
+  }
+}
+
 async function generateProposal() {
   const jobPost = document.getElementById('job-post').value.trim();
   if (!jobPost) { alert('Paste a job post first.'); return; }
@@ -637,21 +667,10 @@ async function generateProposal() {
   document.getElementById('proposal-output').style.display = 'none';
 
   try {
-    const response = await fetch(`${API_URL}/api/generate-proposal`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ jobPost, profile })
-    });
-
-    if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error || 'Failed to generate proposal');
-    }
-
-    const data = await response.json();
-    currentProposal = data.proposal;
-    document.getElementById('proposal-text').textContent = data.proposal;
-    document.getElementById('word-count').textContent = data.proposal.trim().split(/\s+/).length + ' words';
+    const proposal = await callGemini(buildSystemPrompt(profile), jobPost);
+    currentProposal = proposal;
+    document.getElementById('proposal-text').textContent = proposal;
+    document.getElementById('word-count').textContent = proposal.trim().split(/\s+/).length + ' words';
     document.getElementById('proposal-output').style.display = 'block';
     document.getElementById('outcome-form').style.display = 'none';
     status.className = 'status-line ok';
@@ -696,7 +715,6 @@ function saveOutcome() {
   setTimeout(() => s.textContent = '', 2200);
 }
 
-/* ── Tracker ── */
 function renderTracker() {
   const outcomes = getOutcomes();
   const list  = document.getElementById('tracker-list');
@@ -726,7 +744,6 @@ function deleteOutcome(idx) {
   renderTracker();
 }
 
-/* ── Insights ── */
 async function generateInsights() {
   const outcomes = getOutcomes();
   if (outcomes.length < 3) { alert('Log at least 3 outcomes first.'); return; }
@@ -737,25 +754,30 @@ async function generateInsights() {
   status.className = 'status-line loading';
   status.textContent = 'Analyzing';
 
+  const won  = outcomes.filter(o => o.result === 'won');
+  const lost = outcomes.filter(o => o.result === 'lost');
+
+  const prompt = `Analyze these Upwork proposal outcomes. Give 3–5 specific, actionable insights about what patterns drive responses vs silence.
+
+WON (${won.length}):
+${won.map(o => `Job: ${o.title}\nProposal: ${o.proposal}`).join('\n---\n')}
+
+LOST (${lost.length}):
+${lost.map(o => `Job: ${o.title}\nProposal: ${o.proposal}`).join('\n---\n')}
+
+Be direct, specific, and honest. Bullet points. Focus on what to change.`;
+
   try {
-    const response = await fetch(`${API_URL}/api/generate-insights`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ outcomes })
-    });
-
-    if (!response.ok) {
-      const err = await response.json();
-      throw new Error(err.error || 'Failed to generate insights');
-    }
-
-    const data = await response.json();
+    const insights = await callGemini(
+      'You are an Upwork expert analyzing proposal performance. Be direct, specific, and brutally honest.',
+      prompt
+    );
     document.getElementById('insights-output').innerHTML = `
       <div class="insight-panel">
         <div class="insight-header">
           <i class="ti ti-sparkles" style="color:var(--gold)"></i> Analysis
         </div>
-        <div style="white-space:pre-wrap;line-height:1.9">${escHtml(data.insights)}</div>
+        <div style="white-space:pre-wrap;line-height:1.9">${escHtml(insights)}</div>
       </div>`;
     status.className = 'status-line ok';
     status.textContent = '✓ Done';
@@ -767,12 +789,10 @@ async function generateInsights() {
   btn.disabled = false;
 }
 
-/* ── Helpers ── */
 function escHtml(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-/* ── Init ── */
 loadProfile();
 renderTracker();
 </script>
